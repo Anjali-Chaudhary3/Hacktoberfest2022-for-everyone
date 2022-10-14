@@ -1,0 +1,72 @@
+Problem link :https://www.codechef.com/START60D/problems/FLIPPAL 
+
+Problem:
+Chef has a binary string S of length N.
+In one operation, Chef can:
+
+Select two indices i and j (1 <= i, j <=N, i not equal to j)(1≤i,j≤N,i=j) and flip Si and Sj (i.e. change 00 to 11 and 11 to 00)
+
+For example, if S = 10010 and chef applys operation on i = 1 and j = 3 then: 10010→00110.
+
+Find if it is possible to convert SS to a palindrome by applying the above operation any (possibly zero) number of times.
+
+Note: A string is called a palindrome if it reads the same backwards and forwards, for e.g. 1000110001 and 01100110 are palindromic strings.
+
+Input Format :
+The first line contains a single integer T — the number of test cases. Then the test cases follow.
+The first line of each test case contains an integer N — the length of the binary string S.
+The second line of each test case contains a binary string S of length N containing 0 and 1 only.
+
+Output Format :
+For each test case, output YES if it is possible to convert SS to a palindrome. Otherwise, output NO.
+
+You can print each character of the string in uppercase or lowercase. For example, the strings YES, yes, Yes, and yEs are all considered the same.
+
+Constraints :
+1≤T≤10^5
+1≤N≤10^5
+S contains 0 and 1 only.
+Sum of N over all test cases does not exceed 2.10^52
+
+
+Sample 1:
+Input
+3
+6
+101011
+2
+01
+7
+1110000
+Output 
+YES
+NO
+YES
+
+Solution:-
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n;
+	    cin>>n;
+	    string s;
+	    cin>>s;
+	    int c=0;
+       for (int i = 0; i < n / 2; i++) {
+ 
+        if (s[i] != s[n - i - 1]) {
+            c++;
+        }
+    }
+    if(n%2==0 && c%2!=0)
+    cout<<"No"<<endl;
+    else
+    cout<<"Yes"<<end;
+	}
+	return 0;
+}
